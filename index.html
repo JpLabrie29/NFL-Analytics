@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NFL Analytics - Home</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{--bg:#0a111d;--fg:#eef2f8;--mut:#93a0b5;--pn:#131d2e;--bd:#25324a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="dark"]){--bg:#eef1f5;--fg:#0d1726;--mut:#5a6577;--pn:#fff;--bd:#d5dbe4}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#eef1f5;--fg:#0d1726;--mut:#5a6577;--pn:#fff;--bd:#d5dbe4}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.4 Barlow,system-ui,sans-serif}
+.w{max-width:1240px;margin:0 auto;padding:20px 16px 60px}
+h1{font:700 32px "Barlow Condensed",sans-serif;margin:0 0 2px;letter-spacing:.01em}
+.tag{color:var(--mut);margin:0 0 22px;font-size:14px}
+.confs{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:760px){.confs{grid-template-columns:1fr}}
+.conf h2{font:700 22px "Barlow Condensed",sans-serif;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid var(--bd)}
+.div{margin-bottom:18px}
+.div h3{font:600 13px Barlow,sans-serif;color:var(--mut);text-transform:none;margin:0 0 8px}
+.cards{display:flex;flex-direction:column;gap:6px}
+.card{display:flex;align-items:center;gap:10px;background:var(--pn);border:1px solid var(--bd);border-radius:9px;padding:8px 10px;text-decoration:none;color:inherit;transition:transform .08s}
+a.card:hover{transform:translateX(2px)}
+.card.dim{opacity:.55;cursor:default}
+.bdg{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 12px "Barlow Condensed",sans-serif;flex-shrink:0}
+.nm{flex:1;min-width:0}
+.nm b{display:block;font:600 14px Barlow,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nm span{font-size:11px;color:var(--mut)}
+.gr{font:700 15px "Barlow Condensed",sans-serif;border-radius:6px;padding:3px 9px;min-width:38px;text-align:center}
+.lg{display:flex;flex-wrap:wrap;gap:6px;margin-top:26px;font-size:12px;color:var(--mut);align-items:center}
+.lg em{font-style:normal;font-weight:500;border-radius:5px;padding:2px 8px}
+
+.nav{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:22px;border-bottom:1px solid var(--bd);padding-bottom:2px}
+.nav a,.nav span{font:600 14px "Barlow Condensed",sans-serif;letter-spacing:.02em;padding:9px 14px;border-radius:8px 8px 0 0;text-decoration:none;color:var(--mut);cursor:default;position:relative;top:1px}
+.nav a{color:var(--fg);border-bottom:2px solid var(--tc,#1E88E5)}
+.nav span.soon{opacity:.5}
+.nav a.link{color:var(--mut)}.nav a.link:hover{color:var(--fg);background:rgba(255,255,255,.04)}
+
+.site-footer{margin-top:32px;padding-top:14px;border-top:1px solid var(--bd);font-size:11px;color:var(--mut);line-height:1.5}
+</style></head><body><div class="w">
+<nav class="nav">
+<a href="index.html" style="border-bottom-color:#1E88E5">Home</a><a href="players.html" class="link">Players</a><a href="ranking.html" class="link">Ranking</a><a href="schedule.html" class="link">Schedule</a><a href="draft.html" class="link">Draft</a><a href="prospects.html" class="link">Prospects</a><a href="transactions.html" class="link">Transactions</a>
+</nav>
+<h1>NFL Analytics Platform</h1>
+<p class="tag">32 teams, ranked by overall grade. All 32 team pages are live. The other tabs above are placeholders for pages not built yet.</p>
+<div class="confs" id="cf"></div>
+<div class="lg" id="lg"></div>
+<footer class="site-footer">Personal fan project — not affiliated with, endorsed by, or sponsored by the NFL or any team. Team names, logos, and colors belong to their respective owners. Player grades and evaluations are the personal opinion of the site's author.</footer>
+</div>
+<script>
+const T=[{"code":"ARI","name":"Arizona Cardinals","conf":"NFC","div":"West","c1":"#97233F","c2":"#000000","ov":76.2,"rk":30,"url":"team-ari.html"},{"code":"ATL","name":"Atlanta Falcons","conf":"NFC","div":"South","c1":"#a71930","c2":"#000000","ov":77.5,"rk":25,"url":"team-atl.html"},{"code":"BAL","name":"Baltimore Ravens","conf":"AFC","div":"North","c1":"#241773","c2":"#9E7C0C","ov":82.0,"rk":7,"url":"team-bal.html"},{"code":"BUF","name":"Buffalo Bills","conf":"AFC","div":"East","c1":"#00338D","c2":"#C60C30","ov":83.3,"rk":3,"url":"team-buf.html"},{"code":"CAR","name":"Carolina Panthers","conf":"NFC","div":"East","c1":"#0085CA","c2":"#101820","ov":78.0,"rk":23,"url":"team-car.html"},{"code":"CHI","name":"Chicago Bears","conf":"NFC","div":"North","c1":"#0B162A","c2":"#c83803","ov":81.3,"rk":10,"url":"team-chi.html"},{"code":"CIN","name":"Cincinnati Bengals","conf":"AFC","div":"North","c1":"#fb4f14","c2":"#000000","ov":80.4,"rk":14,"url":"team-cin.html"},{"code":"CLE","name":"Cleveland Browns","conf":"AFC","div":"North","c1":"#311D00","c2":"#ff3c00","ov":76.6,"rk":28,"url":"team-cle.html"},{"code":"DAL","name":"Dallas Cowboys","conf":"NFC","div":"South","c1":"#041E42","c2":"#869397","ov":80.4,"rk":13,"url":"team-dal.html"},{"code":"DEN","name":"Denver Broncos","conf":"AFC","div":"West","c1":"#FB4F14","c2":"#002244","ov":81.7,"rk":8,"url":"team-den.html"},{"code":"DET","name":"Detroit Lions","conf":"NFC","div":"North","c1":"#0076b6","c2":"#B0B7BC","ov":80.3,"rk":15,"url":"team-det.html"},{"code":"GB","name":"Green Bay Packers","conf":"NFC","div":"North","c1":"#203731","c2":"#FFB612","ov":76.8,"rk":27,"url":"team-gb.html"},{"code":"HOU","name":"Houston Texans","conf":"AFC","div":"South","c1":"#03202f","c2":"#A71930","ov":79.7,"rk":17,"url":"team-hou.html"},{"code":"IND","name":"Indianapolis Colts","conf":"AFC","div":"South","c1":"#002C5F","c2":"#A2AAAD","ov":78.9,"rk":21,"url":"team-ind.html"},{"code":"JAC","name":"Jacksonville Jaguars","conf":"AFC","div":"South","c1":"#006778","c2":"#9F792C","ov":80.7,"rk":11,"url":"team-jac.html"},{"code":"KC","name":"Kansas City Chiefs","conf":"AFC","div":"West","c1":"#E31837","c2":"#FFB81C","ov":82.1,"rk":6,"url":"team-kc.html"},{"code":"LAC","name":"Los Angeles Chargers","conf":"AFC","div":"West","c1":"#0080C6","c2":"#FFC20E","ov":81.6,"rk":9,"url":"team-lac.html"},{"code":"LAR","name":"Los Angeles Rams","conf":"NFC","div":"West","c1":"#003594","c2":"#ffa300","ov":85.9,"rk":1,"url":"team-lar.html"},{"code":"LV","name":"Las Vegas Raiders","conf":"AFC","div":"West","c1":"#000000","c2":"#A5ACAF","ov":77.6,"rk":24,"url":"team-lv.html"},{"code":"MIA","name":"Miami Dolphins","conf":"AFC","div":"East","c1":"#008E97","c2":"#FC4C02","ov":74.7,"rk":32,"url":"team-mia.html"},{"code":"MIN","name":"Minnesota Vikings","conf":"NFC","div":"North","c1":"#4F2683","c2":"#FFC62F","ov":79.1,"rk":19,"url":"team-min.html"},{"code":"NE","name":"New England Patriots","conf":"AFC","div":"East","c1":"#002244","c2":"#C60C30","ov":80.5,"rk":12,"url":"team-ne.html"},{"code":"NO","name":"New Orleans Saints","conf":"NFC","div":"South","c1":"#D3BC8D","c2":"#101820","ov":79.1,"rk":20,"url":"team-no.html"},{"code":"NYG","name":"New York Giants","conf":"NFC","div":"East","c1":"#0B2265","c2":"#a71930","ov":78.1,"rk":22,"url":"team-nyg.html"},{"code":"NYJ","name":"New York Jets","conf":"AFC","div":"East","c1":"#125740","c2":"#000000","ov":76.3,"rk":29,"url":"team-nyj.html"},{"code":"PHI","name":"Philadelphia Eagles","conf":"NFC","div":"East","c1":"#004C54","c2":"#A5ACAF","ov":83.9,"rk":2,"url":"team-phi.html"},{"code":"PIT","name":"Pittsburgh Steelers","conf":"AFC","div":"North","c1":"#FFB612","c2":"#101820","ov":80.0,"rk":16,"url":"team-pit.html"},{"code":"SEA","name":"Seattle Seahawks","conf":"NFC","div":"West","c1":"#002244","c2":"#A5acaf","ov":82.4,"rk":5,"url":"team-sea.html"},{"code":"SF","name":"San Francisco 49ers","conf":"NFC","div":"West","c1":"#AA0000","c2":"#B3995D","ov":82.6,"rk":4,"url":"team-sf.html"},{"code":"TB","name":"Tampa Bay Buccaneers","conf":"NFC","div":"South","c1":"#D50A0A","c2":"#34302B","ov":79.6,"rk":18,"url":"team-tb.html"},{"code":"TEN","name":"Tennessee Titans","conf":"AFC","div":"South","c1":"#0C2340","c2":"#4B92DB","ov":75.6,"rk":31,"url":"team-ten.html"},{"code":"WAS","name":"Washington Commanders","conf":"NFC","div":"East","c1":"#5A1414","c2":"#FFB612","ov":76.9,"rk":26,"url":"team-was.html"}];
+const TS=[[84,'#7B2FBE','#fff','Elite'],[82.5,'#1E88E5','#fff','Star'],[81,'#00A651','#fff','Excellent'],[79.5,'#66BB3A','#1B3A0A','Very good'],[78,'#B5D334','#2E3A05','Good'],[76.5,'#FFC000','#4A3300','Average'],[75,'#FF8A1F','#4A2300','Below avg'],[73.5,'#F4511E','#fff','Weak'],[72,'#D32F2F','#fff','Poor'],[0,'#8B0000','#fff','Very poor']];
+const pick=v=>TS.find(s=>v>=s[0]);
+const DIVS=['East','North','South','West'];
+const cf=document.getElementById('cf');
+['AFC','NFC'].forEach(conf=>{
+  const sec=document.createElement('div');sec.className='conf';
+  sec.innerHTML=`<h2>${conf}</h2>`;
+  DIVS.forEach(dv=>{
+    const list=T.filter(t=>t.conf===conf&&t.div===dv).sort((a,b)=>b.ov-a.ov);
+    const div=document.createElement('div');div.className='div';
+    div.innerHTML=`<h3>${conf} ${dv}</h3><div class="cards">`+list.map(t=>{
+      const s=pick(t.ov);
+      const tag=t.url?'a':'div';
+      const attrs=t.url?`href="${t.url}"`:'';
+      const cls=t.url?'card':'card dim';
+      return `<${tag} ${attrs} class="${cls}"><div class="bdg" style="background:${t.c1}">${t.code}</div><div class="nm"><b>${t.name}</b><span>#${t.rk} NFL</span></div><div class="gr" style="background:${s[1]};color:${s[2]}">${t.ov.toFixed(1)}</div></${tag}>`;
+    }).join('')+'</div>';
+    sec.appendChild(div);
+  });
+  cf.appendChild(sec);
+});
+document.getElementById('lg').innerHTML='Team grade scale '+TS.map(s=>`<em style="background:${s[1]};color:${s[2]}">${s[3]}</em>`).join('');
+</script></body></html>

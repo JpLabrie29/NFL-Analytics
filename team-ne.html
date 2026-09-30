@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>New England Patriots - Team page</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+:root{--bg:#eef1f5;--fg:#0d1726;--mut:#5a6577;--pn:#fff;--bd:#d5dbe4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a111d;--fg:#eef2f8;--mut:#93a0b5;--pn:#131d2e;--bd:#25324a}}
+:root[data-theme="dark"]{--bg:#0a111d;--fg:#eef2f8;--mut:#93a0b5;--pn:#131d2e;--bd:#25324a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.4 Barlow,system-ui,sans-serif}
+.w{max-width:1400px;margin:0 auto;padding:16px}
+.hd{border-radius:14px;padding:20px 24px;color:#fff;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.id{display:flex;gap:16px;align-items:center}
+.bdg{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;font:700 22px "Barlow Condensed",sans-serif}
+h1{margin:0;font:700 34px/1 "Barlow Condensed",sans-serif;letter-spacing:.01em}
+.sub{opacity:.85;margin-top:4px}
+.st{display:flex;gap:10px}.s{border-radius:10px;padding:8px 14px;min-width:96px;text-align:center}
+.s b{display:block;font:700 28px/1.05 "Barlow Condensed",sans-serif}.s span{font-size:12px}
+.ft{overflow-x:auto;margin-top:8px;border-radius:14px;border:1px solid var(--bd)}
+.f{position:relative;padding:34px 16px;display:grid;gap:10px;background:#1d5a34 repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 72px,transparent 72px 144px)}
+.lab{position:absolute;left:14px;font-size:12px;color:rgba(255,255,255,.7)}
+.c{background:#0e1a14;color:#fff;border:1px solid rgba(255,255,255,.16);border-left:4px solid var(--tc);border-radius:7px;padding:5px 7px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.c.r{border-style:dashed;border-left-style:solid}
+.los{font-size:12px;color:rgba(255,255,255,.7);text-align:center}
+.t{display:flex;gap:5px;align-items:baseline;min-width:0;font-weight:500}.t span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.t i{font-style:normal;font-size:.85em;color:#ffd35c;flex-shrink:0}
+.g{display:flex;gap:3px;align-items:center}.g b{width:24px;flex-shrink:0;font:700 14px "Barlow Condensed",sans-serif;color:#cfd8e6}.g em{flex:1;font:700 16px/1.4 "Barlow Condensed",sans-serif;text-align:center;border-radius:4px;font-style:normal}
+.lg{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;align-items:center;font-size:13px;color:var(--mut)}
+.lg em{font-style:normal;font-weight:500;border-radius:5px;padding:2px 8px}
+p.n{color:var(--mut);font-size:13px;margin:10px 0 0}
+
+.sec{margin-top:22px}.sec h2{font:700 20px "Barlow Condensed",sans-serif;margin:0 0 10px;letter-spacing:.02em}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.rc{background:var(--pn);border:1px solid var(--bd);border-radius:10px;padding:10px 12px}
+.rc .l{font-size:12px;color:var(--mut)}.rc .v{display:flex;align-items:baseline;gap:8px;margin-top:2px}
+.rc b{font:700 22px "Barlow Condensed",sans-serif}.rc span{font-size:12px;color:var(--mut)}
+.ccard{background:var(--pn);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:14px}
+.ccard.hc{border-left:5px solid var(--tc);padding:20px 22px;flex:1;min-width:240px}
+.ccard b{font:700 15px "Barlow Condensed",sans-serif}
+.crow{display:flex;gap:12px;flex-wrap:wrap}
+.pill{border-radius:8px;padding:4px 10px;font:700 14px "Barlow Condensed",sans-serif}
+.sched{width:100%;border-collapse:collapse;font-size:13px}
+.sched th{text-align:left;color:var(--mut);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--bd)}
+.sched td{padding:6px 8px;border-bottom:1px solid var(--bd)}
+.wl{font-weight:700;border-radius:5px;padding:1px 7px;font-size:12px}
+.arrow{font-size:11px;font-weight:700;margin-left:3px}
+.sum{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tab{font:500 13px Barlow,sans-serif;padding:6px 12px;border-radius:20px;border:1px solid var(--bd);background:var(--pn);color:var(--fg);cursor:pointer;display:flex;align-items:center;gap:6px}
+.tab .n{background:var(--bd);color:var(--mut);border-radius:10px;padding:0 6px;font-size:11px;font-weight:700}
+.tab.on{background:var(--tc);color:#fff;border-color:var(--tc)}.tab.on .n{background:rgba(255,255,255,.3);color:#fff}
+.txt{width:100%;border-collapse:collapse;font-size:13px}
+.txt th{text-align:left;color:var(--mut);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--bd)}
+.txt td{padding:6px 8px;border-bottom:1px solid var(--bd)}
+.grd{font-weight:700;border-radius:5px;padding:2px 8px;font-size:12px}
+.empty{color:var(--mut);font-size:13px;padding:16px 4px}
+
+.nav{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:16px;border-bottom:1px solid var(--bd);padding-bottom:2px}
+.nav a{font:600 14px "Barlow Condensed",sans-serif;letter-spacing:.02em;padding:9px 14px;border-radius:8px 8px 0 0;text-decoration:none;color:var(--mut);position:relative;top:1px}
+.nav a:hover{color:var(--fg);background:rgba(255,255,255,.04)}
+
+.site-footer{margin-top:32px;padding-top:14px;border-top:1px solid var(--bd);font-size:11px;color:var(--mut);line-height:1.5}
+</style></head><body><div class="w">
+<nav class="nav">
+<a href="index.html" class="link">Home</a><a href="players.html" class="link">Players</a><a href="ranking.html" class="link">Ranking</a><a href="schedule.html" class="link">Schedule</a><a href="draft.html" class="link">Draft</a><a href="prospects.html" class="link">Prospects</a><a href="transactions.html" class="link">Transactions</a>
+</nav>
+<header class="hd" id="hd"></header>
+<section class="sec" style="margin-top:14px"><h2>Coaching staff</h2><div class="crow" id="cs"></div></section>
+<div class="ft" style="margin-top:18px"><div class="f" id="f"><span class="lab" id="ld">Defense</span><span class="lab" id="lf">Offense</span><div class="los" id="lo">Line of scrimmage</div></div></div>
+<div class="lg" id="lg"></div>
+<section class="sec"><h2>Ranking</h2><div class="rgrid" id="rk"></div></section>
+<section class="sec"><h2>Schedule</h2><div class="sum" id="sm"></div><table class="sched"><thead><tr><th>Wk</th><th>Opp</th><th></th><th>Opp grade</th><th>Result</th></tr></thead><tbody id="sc"></tbody></table></section>
+<section class="sec"><h2>Offseason transactions</h2><div class="tabs" id="tb"></div><div id="txw"></div></section>
+<p class="n">Prototype with one team. Grade 1 then grade 2 (hover a grade for its meaning). (R) rookie, (FA) free-agent signing, (⇄) trade. The dashed card is the rotation player: the best ED or DT outside the four starters, by display grade.</p>
+<footer class="site-footer">Personal fan project — not affiliated with, endorsed by, or sponsored by the NFL or any team. Team names, logos, and colors belong to their respective owners. Player grades and evaluations are the personal opinion of the site's author.</footer>
+</div>
+<script>
+const X={"team":{"code":"NE","name":"New England Patriots","conf":"AFC","div":"East","c1":"#002244","c2":"#C60C30","ov":[80.5,12],"off":[81.3,15],"de":[79.5,9],"so":[81.0,11]},"d":{"QB":[["D. Maye",85,87,0,0,0,-5]],"RB":[["T. Henderson",79,82,0,0,0,0],["R. Stevenson",78,71,0,0,0,0]],"WR":[["A. Brown",89,null,0,0,1,0],["R. Doubs",77,null,0,1,0,0],["D. Douglas",73,null,0,0,0,0]],"TE":[["H. Henry",81,null,0,0,0,0]],"LT":[["W. Campbell",74,null,0,0,0,0]],"LG":[["A. Vera-Tucker",80,null,0,1,0,0]],"C":[["J. Wilson",73,null,0,0,0,0]],"RG":[["M. Onwenu",82,null,0,0,0,0]],"RT":[["M. Moses",80,null,0,0,0,0]],"ED":[["H. Landry",77,78,0,0,0,0],["D. Jones",77,74,0,1,0,0]],"DT":[["M. Williams",86,78,0,0,0,0],["C. Barmore",80,76,0,0,0,0]],"LB":[["R. Spillane",80,69,0,0,0,0],["C. Elliss",73,68,0,0,0,0]],"CB":[["C. Gonzalez",98,null,0,0,0,0],["C. Davis III",83,null,0,0,0,0],["M. Jones",76,null,0,0,0,0]],"S":[["K. Byard III",86,null,0,1,0,0],["C. Woodson",75,null,0,0,0,0]],"ROT":[["G. Jacas",69,65,1,0,0,0,"ED"]]},"ranking":[["Season opener",81.0,11,"team"],["Coaching off",87,7,"player"],["Coaching def",85,11,"player"],["Pass game",82.0,14,"team"],["Run game",78.8,22,"team"],["Pass def",81.1,8,"team"],["Run def",75.5,21,"team"],["QB",85,11,"player"],["RB room",79.9,17,"group"],["Rec room",82.1,12,"group"],["OL",77.6,24,"group"],["DL rush",78.0,20,"group"],["DL run stop",75.0,18,"group"],["LB room",77.2,20,"group"],["DB room",85.0,2,"group"]],"coach":{"hc":"M. Vrabel","off":87,"defg":85,"oc":"J. McDaniels","dc":"Z. Khur"},"sched":[[1,"SEA","A",82.4,"L"],[2,"PIT","H",80.0,"L"],[3,"JAC","A",80.7,"W"],[4,"BUF","A",83.3,"L"],[5,"LV","H",77.6,"W"],[6,"NYJ","H",76.3,"W"],[7,"CHI","A",81.3,"L"],[8,"MIA","A",74.7,"W"],[9,"GB","H",76.8,"W"],[10,"DET","A",80.3,"W"],[12,"LAC","A",81.6,"W"],[13,"BUF","H",83.3,"W"],[14,"MIN","H",79.1,"L"],[15,"KC","A",82.1,"L"],[16,"NYJ","A",76.3,"W"],[17,"DEN","H",81.7,"L"],[18,"MIA","H",74.7,"L"]],"standing":{"divrank":2,"confrank":7,"win":9,"lose":8,"oppavg":79.5},"tx":{"draft":[[1,28,"OT","Caleb Lomu","Utah",69.5],[2,55,"ED","Gabe Jacas","Illinois",66.5],[3,95,"TE","Eli Raridon","Notre Dame",56.4],[5,171,"CB","Karon Prunty","Wake Forest",52.0],[6,196,"OT","Dametrious Crownover","Texas A&M",57.5],[6,212,"LB","Namdi Obiazor","TCU",54.5],[7,234,"QB","Behren Morton","Texas Tech",56.5],[7,245,"RB","Jam Miller","Alabama",62.5],[7,247,"ED","Quintayvious Hutchins","Boston College",52.0]],"signings":[["WR","R. Doubs","Below average starter","GB","4yr / $68M","C-"],["TE","J. Hill","Backup","MIA","3yr / $15M","C-"],["LG","A. Vera-Tucker","Good starter","NYJ","3yr / $42M","B+"],["RG","G. Van Roten","Below average starter","NYG","1yr / $3M","B-"],["ED","D. Jones","Below average starter","BAL","3yr / $36.5M","B"],["DT","D. Jones","Below average starter","BUF","1yr / $3.5M","B+"],["S","K. Byard","Good starter","CHI","1yr / $7M","A"]],"lost_fa":[["WR","S. Diggs","Good starter","WAS","A-"],["TE","A. Hooper","Quality backup","ATL","B-"],["RT","V. Lowe","Backup","SF","D"],["ED","K. Chaisson","Below average starter","WAS","B"],["DT","K. Tonga","Below average starter","KC","B"],["LB","J. Gibbens","Quality backup","ARI","C+"],["S","J. Hawkins","Rotation","BAL","C+"]],"trades":[["WR","K. Boutte","Below average starter","NE","B+"],["WR","A. Brown","Star","PHI","A"]],"retire":[],"resign":[]}};
+const PS=[[94,'#7B2FBE','#fff','Elite'],[90,'#1E88E5','#fff','Star'],[86,'#00A651','#fff','Excellent'],[82,'#66BB3A','#1B3A0A','Very good'],[78,'#B5D334','#2E3A05','Good'],[75,'#FFC000','#4A3300','Average'],[72,'#FF8A1F','#4A2300','Below average'],[69,'#F4511E','#fff','Weak'],[65,'#D32F2F','#fff','Poor'],[0,'#8B0000','#fff','Very poor']];
+const TS=[[84,'#7B2FBE','#fff'],[82.5,'#1E88E5','#fff'],[81,'#00A651','#fff'],[79.5,'#66BB3A','#1B3A0A'],[78,'#B5D334','#2E3A05'],[76.5,'#FFC000','#4A3300'],[75,'#FF8A1F','#4A2300'],[73.5,'#F4511E','#fff'],[72,'#D32F2F','#fff'],[0,'#8B0000','#fff']];
+const GS=[[88,'#7B2FBE','#fff'],[85,'#1E88E5','#fff'],[83,'#00A651','#fff'],[81,'#66BB3A','#1B3A0A'],[79,'#B5D334','#2E3A05'],[77,'#FFC000','#4A3300'],[75,'#FF8A1F','#4A2300'],[73,'#F4511E','#fff'],[70,'#D32F2F','#fff'],[0,'#8B0000','#fff']];
+const SCALES={team:TS,player:PS,group:GS};
+const pick=(v,S)=>S.find(s=>v>=s[0]);
+const M={QB:['Passing','Running'],RB:['Running','Receiving'],WR:['Receiving'],TE:['Receiving'],LT:['Blocking'],LG:['Blocking'],C:['Blocking'],RG:['Blocking'],RT:['Blocking'],ED:['Pass rush','Run stop'],DT:['Pass rush','Run stop'],LB:['Run stop','Coverage'],CB:['Coverage'],S:['Coverage']};
+const P=[['S',0,'S',1,4,16,-10],['S',1,'S',1,8,-16,-10],['LB',0,'LB',2,5,16,-8],['LB',1,'LB',2,7,-16,-8],['CB',0,'CB',3,1,0,0],['CB',2,'CB',3,2,0,-32],['ED',0,'ED',3,4,0,0],['DT',0,'DT',3,5,0,0],['DT',1,'DT',3,6,0,0],['ED',1,'ED',3,7,0,0],['ROT',0,'',3,8,0,0],['CB',1,'CB',3,11,0,0],
+['WR',0,'WR',5,1,0,0],['WR',2,'WR',5,2,0,32],['LT',0,'LT',5,4,0,0],['LG',0,'LG',5,5,0,0],['C',0,'C',5,6,0,0],['RG',0,'RG',5,7,0,0],['RT',0,'RT',5,8,0,0],['TE',0,'TE',5,9,0,32],['WR',1,'WR',5,11,0,0],['QB',0,'QB',6,6,0,0],['RB',0,'RB',7,5,16,14],['RB',1,'RB',7,7,-16,14]];
+const T=X.team,f=document.getElementById('f'),lo=document.getElementById('lo'),ld=document.getElementById('ld'),lf=document.getElementById('lf');
+document.documentElement.style.setProperty('--tc',T.c1);
+document.getElementById('hd').style.background=T.c1;
+const tile=(l,a,so)=>{const s=pick(a[0],TS);const dl=so?(a[0]-so[0]):0;const ar=so?`<span class="arrow" style="color:${dl>=0?'#7CFC9A':'#FF9A9A'}">${dl>=0?'▲':'▼'}${Math.abs(dl).toFixed(1)}</span>`:'';return `<div class="s" style="background:${s[1]};color:${s[2]}"><b>${a[0].toFixed(1)}${ar}</b><span>${l} · #${a[1]}</span></div>`};
+document.getElementById('hd').innerHTML=`<div class="id"><div class="bdg" style="color:${T.c1}">${T.code}</div><div><h1>${T.name}</h1><div class="sub">${T.conf} ${T.div}</div></div></div><div class="st">${tile('Overall',T.ov,T.so)}${tile('Offense',T.off)}${tile('Defense',T.de)}</div>`;
+const chip=(v,t)=>{const s=pick(v,PS);return `<em style="background:${s[1]};color:${s[2]}" title="${t||''}">${v}</em>`};
+const els=P.map(([k,i,tag])=>{const p=X.d[k][i],pos=k==='ROT'?p[7]:k,m=M[pos];
+const mk=(p[3]?' (R)':'')+(p[4]?' (FA)':'')+(p[5]?' (⇄)':'');
+const n=(p[0]+mk).length,fs=n>17?11:n>14?12:13;
+const g=chip(p[1],m[0])+(p[2]!=null&&m[1]?chip(p[2],m[1]):'');
+const delta=p[6];const ar=(delta!=null&&delta!==0)?`<i style="color:${delta>0?'#7CFC9A':'#FF9A9A'};font-style:normal">${delta>0?'▲':'▼'}${Math.abs(delta)}</i>`:'';
+const d=document.createElement('div');d.className='c'+(k==='ROT'?' r':'');if(k==='ROT')d.title='Rotation player';
+d.innerHTML=`<div class="t" style="font-size:${fs}px"><span>${p[0]}</span>${ar}<i>${mk.trim()}</i></div><div class="g"><b>${tag||pos}</b>${g}</div>`;
+f.appendChild(d);return d});
+function layout(){f.style.minWidth='1180px';
+f.style.gridTemplateColumns='1fr 1fr .55fr 1fr 1fr 1fr 1fr 1fr 1fr .55fr 1fr';
+f.style.gridTemplateRows='repeat(3,64px) 22px repeat(3,64px)';
+P.forEach(([k,i,t,r,c,dx,dy],j)=>{const s=els[j].style;s.gridRow=r;s.gridColumn=c;s.transform=`translate(${dx||0}px,${dy||0}px)`});
+const l=lo.style;l.gridRow='4';l.gridColumn='1/-1';l.borderTop='2px solid rgba(255,255,255,.55)';l.borderLeft='0';l.writingMode='horizontal-tb';l.padding='3px 0 0';
+ld.style.cssText='top:8px;left:14px';lf.style.cssText='bottom:8px;left:14px';}
+layout();
+document.getElementById('lg').innerHTML='Player grade scale '+PS.map(s=>`<em style="background:${s[1]};color:${s[2]}">${s[3]} ${s[0]?s[0]+'+':'<65'}</em>`).join('');
+
+const RK=X.ranking, SC=X.sched, ST=X.standing, CO=X.coach;
+const rk=document.getElementById('rk');
+RK.forEach(([l,v,rk_,sc])=>{const s=pick(v,SCALES[sc]);rk.insertAdjacentHTML('beforeend',`<div class="rc"><div class="l">${l}</div><div class="v"><b style="color:${s[1]}">${v.toFixed(1)}</b><span>#${rk_} NFL</span></div></div>`)});
+document.getElementById('sm').innerHTML=`<div class="rc"><div class="l">Division rank</div><div class="v"><b>#${ST.divrank}</b></div></div><div class="rc"><div class="l">Conference rank</div><div class="v"><b>#${ST.confrank}</b></div></div><div class="rc"><div class="l">Predicted record</div><div class="v"><b>${ST.win}-${ST.lose}</b></div></div><div class="rc"><div class="l">Opponent avg grade</div><div class="v"><b>${ST.oppavg}</b></div></div>`;
+const scb=document.getElementById('sc');
+SC.forEach(([wk,opp,ha,og,res])=>{const s=pick(og,TS);scb.insertAdjacentHTML('beforeend',`<tr><td>${wk}</td><td>${opp}</td><td>${ha}</td><td><span class="wl" style="background:${s[1]};color:${s[2]}">${og.toFixed(1)}</span></td><td><span class="wl" style="background:${res==='W'?'#1B7F3E':'#8B0000'};color:#fff">${res}</span></td></tr>`)});
+const cs=document.getElementById('cs');
+const cp=(name,role,grade,hc)=>{const s=pick(grade,PS);return `<div class="ccard${hc?' hc':''}" style="${hc?'':'flex:1;min-width:180px'}"><div><div style="font-size:11px;color:var(--mut)">${role}</div><b style="${hc?'font-size:20px':'font-size:15px'}">${name}</b></div><div class="pill" style="background:${s[1]};color:${s[2]};margin-left:auto;${hc?'font-size:20px;padding:6px 14px':''}">${grade.toFixed(0)}</div></div>`};
+cs.innerHTML = cp(CO.hc,'Head Coach', (CO.off+CO.defg)/2, true) + `<div style="display:flex;gap:12px;flex:2;min-width:260px">` + cp(CO.oc,'Offensive Coordinator',CO.off,false) + cp(CO.dc,'Defensive Coordinator',CO.defg,false) + `</div>`;
+
+const TX=X.tx;
+const letCol=(g)=>{const m={'A+':'#7B2FBE','A':'#1E88E5','A-':'#00A651','B+':'#66BB3A','B':'#B5D334','B-':'#FFC000','C+':'#FF8A1F','C':'#F4511E','C-':'#D32F2F','D':'#8B0000'};return [m[g]||'#888', ['#1B3A0A','#2E3A05','#4A3300'].includes(m[g])?'':'#fff'];}
+const tierCol=(t)=>{const o=['Elite','Star','Good starter','Average starter','Below average starter','Rotation','Quality backup','Backup'];const c=['#7B2FBE','#1E88E5','#66BB3A','#FFC000','#FF8A1F','#F4511E','#D32F2F','#8B0000'];const i=o.indexOf(t);return c[i>=0?i:3];}
+const TABS=[['draft','Draft'],['signings','Free agent signings'],['trades','Trades'],['resign','Re-signings'],['retire','Retirements'],['lost_fa','Lost in FA']];
+const tb=document.getElementById('tb'),txw=document.getElementById('txw');
+function renderTab(k){txw.innerHTML='';const rows=TX[k]||[];
+if(!rows.length){txw.innerHTML='<div class="empty">No entries this offseason.</div>';return;}
+let head,body;
+if(k==='draft'){head='<tr><th>Rd</th><th>Pick</th><th>Pos</th><th>Player</th><th>College</th><th>Pick grade</th></tr>';
+const DGS=[[85,'#7B2FBE','#fff'],[80,'#1E88E5','#fff'],[75,'#00A651','#fff'],[70,'#66BB3A','#1B3A0A'],[66,'#B5D334','#2E3A05'],[62,'#FFC000','#4A3300'],[58,'#FF8A1F','#4A2300'],[54,'#F4511E','#fff'],[50,'#D32F2F','#fff'],[0,'#8B0000','#fff']];
+body=rows.map(r=>{const c=DGS.find(x=>r[5]>=x[0]);return `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td><td><span class="grd" style="background:${c[1]};color:${c[2]}">${r[5]}</span></td></tr>`}).join('');}
+else if(k==='signings'){head='<tr><th>Pos</th><th>Player</th><th>Tier</th><th>From</th><th>Contract</th><th>Grade</th></tr>';
+body=rows.map(([p,n,t,team,c,g])=>{const[bg,fg]=letCol(g);return `<tr><td>${p}</td><td>${n}</td><td><span class="grd" style="background:${tierCol(t)};color:#fff">${t}</span></td><td>${team}</td><td>${c}</td><td><span class="grd" style="background:${bg};color:${fg||'#fff'}">${g}</span></td></tr>`}).join('');}
+else if(k==='resign'){head='<tr><th>Pos</th><th>Player</th><th>Tier</th><th>Contract</th><th>Grade</th></tr>';
+body=rows.map(([p,n,t,c,g])=>{const[bg,fg]=letCol(g);return `<tr><td>${p}</td><td>${n}</td><td><span class="grd" style="background:${tierCol(t)};color:#fff">${t}</span></td><td>${c}</td><td><span class="grd" style="background:${bg};color:${fg||'#fff'}">${g}</span></td></tr>`}).join('');}
+else if(k==='lost_fa'){head='<tr><th>Pos</th><th>Player</th><th>Tier</th><th>New team</th><th>Impact</th></tr>';
+body=rows.map(([p,n,t,team,g])=>{const[bg,fg]=letCol(g);return `<tr><td>${p}</td><td>${n}</td><td><span class="grd" style="background:${tierCol(t)};color:#fff">${t}</span></td><td>${team}</td><td><span class="grd" style="background:${bg};color:${fg||'#fff'}">${g}</span></td></tr>`}).join('');}
+else if(k==='trades'){head='<tr><th>Pos</th><th>Player</th><th>Tier</th><th>From</th><th>Grade</th></tr>';
+body=rows.map(([p,n,t,team,g])=>{const[bg,fg]=letCol(g);return `<tr><td>${p}</td><td>${n}</td><td><span class="grd" style="background:${tierCol(t)};color:#fff">${t}</span></td><td>${team}</td><td><span class="grd" style="background:${bg};color:${fg||'#fff'}">${g}</span></td></tr>`}).join('');}
+else{head='<tr><th>Pos</th><th>Player</th><th>Tier</th></tr>';
+body=rows.map(([p,n,t])=>`<tr><td>${p}</td><td>${n}</td><td><span class="grd" style="background:${tierCol(t)};color:#fff">${t}</span></td></tr>`).join('');}
+txw.innerHTML=`<table class="txt"><thead>${head}</thead><tbody>${body}</tbody></table>`;}
+TABS.forEach(([k,l])=>{const n=(TX[k]||[]).length;const b=document.createElement('div');b.className='tab';b.innerHTML=`${l}<span class="n">${n}</span>`;b.onclick=()=>{[...tb.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');renderTab(k)};tb.appendChild(b)});
+tb.children[0].classList.add('on');renderTab(TABS[0][0]);
+</script></body></html>
