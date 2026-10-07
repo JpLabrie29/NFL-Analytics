@@ -9,12 +9,15 @@
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.4 Barlow,system-ui,sans-serif}
 .w{max-width:1400px;margin:0 auto;padding:16px}
-.hd{border-radius:14px;padding:20px 24px;color:#fff;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
-.id{display:flex;gap:16px;align-items:center}
-.bdg{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;font:700 22px "Barlow Condensed",sans-serif}
+.hd{position:relative;border-radius:14px;padding:18px 24px 18px 150px;color:#fff;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;min-height:84px;overflow:visible}
+.logoWrap{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:132px;height:132px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));z-index:2}
+.logoWrap img{width:100%;height:100%;object-fit:contain}
+.logoFallback{width:100%;height:100%;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font:700 26px "Barlow Condensed",sans-serif;color:var(--tc)}
+.stripe{position:absolute;left:128px;top:-6px;bottom:-6px;width:16px;background:var(--c2,#fff);transform:skewX(-18deg);opacity:.9;z-index:1;border-radius:3px}
+.id{display:flex;gap:16px;align-items:center;position:relative;z-index:2}
 h1{margin:0;font:700 34px/1 "Barlow Condensed",sans-serif;letter-spacing:.01em}
 .sub{opacity:.85;margin-top:4px}
-.st{display:flex;gap:10px}.s{border-radius:10px;padding:8px 14px;min-width:96px;text-align:center}
+.st{display:flex;gap:10px}.s{border-radius:10px;padding:8px 16px;min-width:88px;text-align:center}
 .s b{display:block;font:700 28px/1.05 "Barlow Condensed",sans-serif}.s span{font-size:12px}
 .ft{overflow-x:auto;margin-top:8px;border-radius:14px;border:1px solid var(--bd)}
 .f{position:relative;padding:34px 16px;display:grid;gap:10px;background:#1d5a34 repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 72px,transparent 72px 144px)}
@@ -87,9 +90,12 @@ const P=[['S',0,'S',1,4,16,-10],['S',1,'S',1,8,-16,-10],['LB',0,'LB',2,5,16,-8],
 ['WR',0,'WR',5,1,0,0],['WR',2,'WR',5,2,0,32],['LT',0,'LT',5,4,0,0],['LG',0,'LG',5,5,0,0],['C',0,'C',5,6,0,0],['RG',0,'RG',5,7,0,0],['RT',0,'RT',5,8,0,0],['TE',0,'TE',5,9,0,32],['WR',1,'WR',5,11,0,0],['QB',0,'QB',6,6,0,0],['RB',0,'RB',7,5,16,14],['RB',1,'RB',7,7,-16,14]];
 const T=X.team,f=document.getElementById('f'),lo=document.getElementById('lo'),ld=document.getElementById('ld'),lf=document.getElementById('lf');
 document.documentElement.style.setProperty('--tc',T.c1);
-document.getElementById('hd').style.background=T.c1;
-const tile=(l,a,so)=>{const s=pick(a[0],TS);const dl=so?(a[0]-so[0]):0;const ar=so?`<span class="arrow" style="color:${dl>=0?'#7CFC9A':'#FF9A9A'}">${dl>=0?'▲':'▼'}${Math.abs(dl).toFixed(1)}</span>`:'';return `<div class="s" style="background:${s[1]};color:${s[2]}"><b>${a[0].toFixed(1)}${ar}</b><span>${l} · #${a[1]}</span></div>`};
-document.getElementById('hd').innerHTML=`<div class="id"><div class="bdg" style="color:${T.c1}">${T.logo?`<img src="${T.logo}" alt="${T.code}" onerror="this.style.display='none';this.parentElement.textContent='${T.code}'">`:T.code}</div><div><h1>${T.name}</h1><div class="sub">${T.conf} ${T.div}</div></div></div><div class="st">${tile('Overall',T.ov,T.so)}${tile('Offense',T.off)}${tile('Defense',T.de)}</div>`;
+document.getElementById('hd').style.background=`linear-gradient(180deg, ${T.c1}, ${T.c1}dd)`;
+document.getElementById('hd').style.setProperty('--c2',T.c2);
+const tile=(l,cls,a,so)=>{const s=pick(a[0],TS);const dl=so?(a[0]-so[0]):0;const ar=so?`<span class="arrow" style="color:${dl>=0?'#4CF07A':'#FF9A9A'}">${dl>=0?'▲':'▼'}${Math.abs(dl).toFixed(1)}</span>`:'';return `<div class="s" style="background:${s[1]};color:${s[2]}"><b>${a[0].toFixed(1)}${ar}</b><span>${l} · #${a[1]}</span></div>`};
+document.getElementById('hd').innerHTML=`<div class="logoWrap">${T.logo?`<img src="${T.logo}" alt="${T.code}" id="logoImg">`:`<div class="logoFallback">${T.code}</div>`}</div><div class="stripe"></div><div class="id"><div><h1>${T.name}</h1><div class="sub">${T.conf} ${T.div}</div></div></div><div class="st">${tile('Overall','ov',T.ov,T.so)}${tile('Offense','off',T.off)}${tile('Defense','de',T.de)}</div>`;
+const li=document.getElementById('logoImg');
+if(li)li.onerror=()=>{li.outerHTML=`<div class="logoFallback">${T.code}</div>`};
 const chip=(v,t)=>{const s=pick(v,PS);return `<em style="background:${s[1]};color:${s[2]}" title="${t||''}">${v}</em>`};
 const els=P.map(([k,i,tag])=>{const p=X.d[k][i],pos=k==='ROT'?p[7]:k,m=M[pos];
 const mk=(p[3]?' (R)':'')+(p[4]?' (FA)':'')+(p[5]?' (⇄)':'');
